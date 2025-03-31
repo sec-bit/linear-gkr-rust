@@ -1,0 +1,16 @@
+[package]
+name = "linear-gkr-rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+num-bigint = "0.4"
+num-traits = "0.2"
+
+ark-ff = "0.4"
+ark-ec = "0.4"
+ark-bn254 = "0.4"
+
+rayon = "1.8"
+regex = "1.11.1"
+ark-poly = "0.5.0"
