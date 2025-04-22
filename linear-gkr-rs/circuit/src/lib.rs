@@ -1,14 +1,35 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+//! Public API for circuits + parsing utilities.
+
+mod gate;
+mod parse;
+
+pub use gate::{Gate, GateType};
+pub use parse::{Circuit, Layer};
+
+/// Re‑export parsing helpers so CLI can `use circuit::load_from_path`.
+pub use parse::{load_from_path, load_from_reader};
+
+/// Top‑level error type for the crate.
+#[derive(thiserror::Error, Debug)]
+pub enum Error {
+    #[error("IO error: {0}")]
+    Io(#[from] std::io::Error),
+    #[error("Parse error: {0}")]
+    Parse(String),
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+//! Layer‑based circuit description + parsing from the `README` file format.
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+mod parse;
+mod gate;
+
+pub use gate::{Gate, GateType};
+
+/// Public error type.
+#[derive(thiserror::Error, Debug)]
+pub enum Error {
+    #[error("IO error: {0}")]
+    Io(#[from] std::io::Error),
+    #[error("Parse error: {0}")]
+    Parse(String),
 }

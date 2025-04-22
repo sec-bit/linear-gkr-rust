@@ -1,6 +1,9 @@
 [package]
-name = "circuit"
+name    = "circuit"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+field      = { path = "../field" }
+serde      = { version = "1", features = ["derive"] }
+thiserror   = "1"
