@@ -1,6 +1,26 @@
 [package]
-name = "cli"
+name    = "cli"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+prover   = { path = "../prover" }
+verifier = { path = "../verifier" }
+anyhow   = "1"
+clap     = { version = "4", features = ["derive"] }
+
+[[bin]]
+name = "fast_para_track"
+path = "src/main_fast_para_track.rs"
+
+[[bin]]
+name = "fast_track"
+path = "src/main_fast_track.rs"
+
+[[bin]]
+name = "slow_track"
+path = "src/main_slow_track.rs"
+
+[[bin]]
+name = "zk"
+path = "src/main_zk.rs"

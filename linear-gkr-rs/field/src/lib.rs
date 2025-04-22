@@ -1,4 +1,6 @@
 use ark_bn254::Fr as Fp;
+use ark_ff::BigInteger;
+use std::str::FromStr;
 use ark_ff::{Field, PrimeField};
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssign};
 

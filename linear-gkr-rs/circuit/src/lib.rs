@@ -17,19 +17,3 @@ pub enum Error {
     #[error("Parse error: {0}")]
     Parse(String),
 }
-
-//! Layer‑based circuit description + parsing from the `README` file format.
-
-mod parse;
-mod gate;
-
-pub use gate::{Gate, GateType};
-
-/// Public error type.
-#[derive(thiserror::Error, Debug)]
-pub enum Error {
-    #[error("IO error: {0}")]
-    Io(#[from] std::io::Error),
-    #[error("Parse error: {0}")]
-    Parse(String),
-}
