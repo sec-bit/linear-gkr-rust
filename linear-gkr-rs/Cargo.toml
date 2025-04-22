@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+members = [
+    "field",
+    "polynomial",
+    "circuit",
+    "prover",
+    "verifier",
+    "cli",
+]
