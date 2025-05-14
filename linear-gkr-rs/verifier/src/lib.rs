@@ -1,14 +1,16 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+//! Extremely thin "always‑accept" verifier for now.
+//! (Sum‑check will land next, but this lets the CLI round‑trip.)
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+use circuit::Circuit;
+use field::FieldElement;
+use prover::Prover;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+pub struct Verifier;
+
+impl Verifier {
+    pub fn verify(circuit: &Circuit, prover: &Prover) -> bool {
+        // Compare the prover's outputs with a fresh re‑evaluation.
+        let fresh = Prover::evaluate(circuit);
+        prover.outputs() == fresh.outputs()
     }
 }
