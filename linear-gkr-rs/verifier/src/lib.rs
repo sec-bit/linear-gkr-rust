@@ -1,9 +1,8 @@
 //! Sum‑check verifier – Rust port of `verifier.cpp` (slow track).
 
-use ark_ff::{One, UniformRand, Zero};
+use ark_ff::{One, Zero};
 use circuit::{Circuit, GateType, Layer};
 use field::{FieldElement, FieldExt};
-use polynomial::{QuadraticPoly, QuintuplePoly};
 use prover::Prover;
 use rand::thread_rng;
 
