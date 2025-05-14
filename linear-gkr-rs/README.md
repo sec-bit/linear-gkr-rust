@@ -95,6 +95,3 @@ cargo test --workspace
 4. Run tests and ensure they pass
 5. Submit a pull request
 
-## License
-
-[Add your license information here]
