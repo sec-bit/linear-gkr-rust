@@ -2,6 +2,8 @@
 
 use field::FieldElement as F;
 use std::ops::{Add, AddAssign};
+pub mod quad;
+pub use quad::{QuadraticPoly, QuintuplePoly};
 
 /// a + b·x
 #[derive(Clone, Copy, Debug, Default)]

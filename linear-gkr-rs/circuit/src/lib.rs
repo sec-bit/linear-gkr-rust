@@ -4,10 +4,7 @@ mod gate;
 mod parse;
 
 pub use gate::{Gate, GateType};
-pub use parse::{Circuit, Layer};
-
-/// Re‑export parsing helpers so CLI can `use circuit::load_from_path`.
-pub use parse::{load_from_path, load_from_reader};
+pub use parse::{load_from_path, Circuit, Layer};
 
 /// Top‑level error type for the crate.
 #[derive(thiserror::Error, Debug)]

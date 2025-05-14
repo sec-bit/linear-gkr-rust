@@ -7,3 +7,6 @@ edition = "2021"
 circuit = { path = "../circuit" }
 field = { path = "../field" }
 prover = { path = "../prover" }
+polynomial = { path = "../polynomial" }
+rand = "0.8"
+ark-ff = "0.4"

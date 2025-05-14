@@ -1,23 +1,22 @@
+use circuit::load_from_path;
 use clap::Parser;
-use std::path::PathBuf;
+use prover::Prover;
+use verifier::Verifier;
 
-/// Reference (slow) prover + verifier – good for correctness tests
+/// Replacement for C++ `main_slow_track.cpp`.
 #[derive(Parser)]
-#[command(author, version, about)]
-struct Args {
-    /// Circuit description file (txt)
-    #[arg(short, long)]
-    circuit: PathBuf,
+struct Opts {
+    /// Path to circuit text file
+    #[clap(long)]
+    circuit: String,
 }
 
 fn main() -> anyhow::Result<()> {
-    let args = Args::parse();
-    if !args.circuit.exists() {
-        anyhow::bail!("circuit file {:?} does not exist", args.circuit);
-    }
-    println!(
-        "[slow_track] would verify circuit {:?} – logic not implemented yet",
-        args.circuit
-    );
+    let opts = Opts::parse();
+    let circuit = load_from_path(&opts.circuit)?;
+    let prover = Prover::evaluate(&circuit);
+    let ok = Verifier::verify(&circuit, &prover);
+
+    println!("{}", if ok { "Pass ✅" } else { "Fail ❌" });
     Ok(())
 }

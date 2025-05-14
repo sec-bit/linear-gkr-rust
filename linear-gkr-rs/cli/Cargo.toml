@@ -1,13 +1,14 @@
 [package]
-name    = "cli"
+name = "cli"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-prover   = { path = "../prover" }
+prover = { path = "../prover" }
 verifier = { path = "../verifier" }
-anyhow   = "1"
-clap     = { version = "4", features = ["derive"] }
+circuit = { path = "../circuit" }
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
 
 [[bin]]
 name = "fast_para_track"
